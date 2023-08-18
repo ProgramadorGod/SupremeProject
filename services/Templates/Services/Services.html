@@ -1,0 +1,28 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{%block content%}
+
+    {% for Service in Services %}
+
+
+
+    <div><p>
+
+        <h2 style="color: aliceblue;">
+            {{Service.Title}}
+        </h2>
+
+        <p style="color: aqua;">
+            {{Service.Content}}
+        </p>
+        
+        <img src="{{Service.Image.url}}">
+        
+
+    </p></div>
+
+    {% endfor %}
+
+
+{% endblock %}
