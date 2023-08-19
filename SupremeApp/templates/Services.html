@@ -1,0 +1,30 @@
+{% extends "Base.html" %}
+{% load static %}
+
+{%block content%}
+
+    {% for Service in Services %}
+
+
+
+    <!-- Heading -->
+    <section class="page-section clearfix">
+        <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{Service.Image.url}}" alt="" style="height: 500px; width: auto;">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+            <h2 class="section-heading mb-4" >
+                <span class="section-heading-upper">            {{Service.Title}}                </span>
+                <span class="section-heading-lower">            {{Service.Content}}                </span>
+            </h2>
+         
+            
+            </div>
+        </div>
+        </div>
+    </section>
+
+    {% endfor %}
+
+
+{% endblock %}
