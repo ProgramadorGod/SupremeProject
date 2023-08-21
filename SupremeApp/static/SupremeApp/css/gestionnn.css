@@ -76,7 +76,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(24, 64, 8);
+  background-color: rgba(19, 42, 10, 0.589);
   font-family: 'Raleway';
 }
 
@@ -170,7 +170,7 @@ p {
   bottom: -0.5rem;
   left: -0.5rem;
   right: -0.5rem;
-  border: 0.25rem solid rgba(255, 255, 255, 0.85);
+  box-shadow: #0000 20px;
 }
 
 .cta .cta-innerv {

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'SupremeApp',
     'services',
     'Blog',
+    'Store',
 ]
 
 MIDDLEWARE = [
