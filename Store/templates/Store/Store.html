@@ -1,6 +1,13 @@
 {% extends "SupremeApp/Base.html" %}
 {% load static %}
-
 {%block content%}
+
+{%for Product in Products%}
+
+    <img src="{{Product.Image.url}}">
+
+{% endfor %}
+
+
 
 {% endblock %}

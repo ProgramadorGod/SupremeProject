@@ -9,11 +9,11 @@ class Category_Prod(models.Model):
 
 
     class Meta:
-        verbose_name = 'Product Categorie'
-        verbose_name_plural = 'Products Categories'
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
-        def __str__(self) -> str:
-            return self.Name
+    def __str__(self) -> str:
+        return self.Name
 
 
 class Product(models.Model):
@@ -23,7 +23,10 @@ class Product(models.Model):
     Categorie = models.ForeignKey(Category_Prod,on_delete=models.CASCADE)
     Disponibility = models.BooleanField(default=True)
 
+
     class Meta:
         verbose_name =  "Product"
         verbose_name_plural = "Products"
-        
+
+    def __str__(self) -> str:
+        return self.Name
