@@ -2,12 +2,18 @@
 {% load static %}
 {%block content%}
 
+<div class="row">
+
 {%for Product in Products%}
-
-    <img src="{{Product.Image.url}}">
-
+    <div class="card" style="width: 10%;">
+        <img src="{{Product.Image.url}}">
+        <div class="card-body">
+            <h7 class="card-title">{{Product.Name}}</h7>
+        </div>
+    </div>
 {% endfor %}
 
+</div>
 
 
 {% endblock %}

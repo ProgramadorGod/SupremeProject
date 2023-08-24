@@ -6,5 +6,5 @@ class ProductFields(admin.ModelAdmin):
     readonly_fields=('Created','Updated')
 
 
-admin.site.register(Product)
+admin.site.register(Product,ProductFields)
 admin.site.register(Category_Prod,ProductFields)
