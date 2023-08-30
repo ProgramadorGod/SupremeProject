@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .Car import Car
+from Car import *
 from Store.models import Product
 from django.shortcuts import redirect
 
