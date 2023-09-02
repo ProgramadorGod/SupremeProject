@@ -27,7 +27,10 @@ urlpatterns = [
     path('Services/', include('services.urls')),
     path('Blog/', include('Blog.urls')),
     path('Store/', include('Store.urls')),
+    path('ShoppingCart/', include('ShoppingCart.urls')),
+
     path('', include('SupremeApp.urls')),
+    
 
 ]   
 

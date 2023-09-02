@@ -4,34 +4,26 @@
 
 <div class="container">
     <div style="float: right;">
-        <p style="color: aliceblue;">Total:     </p>
+        <p style="color: aliceblue;">Total:  {{ Car_Total_Import }}$    </p>
+        {% include "Store/Car/CarWidget.html" %}
     </div>
 
-
-    {% for Product in Products %}
-        {% if forloop.counter0|divisibleby:4 %}
-            <div class="row">
-        {% endif %}
-            <div class="col-md-3">
-                <div class="card" style="width: 100%; background-color: rgba(44, 69, 4, 0.185); margin: 10px; box-shadow: 5px 4px 10px rgba(5, 120, 3, 0.438); border-style:ridge; border-color: rgb(9, 50, 3);">
-                    <img src="{{Product.Image.url}}" style="height: 250px; width: 240px; background: rgba(0, 107, 201, 0); align-self: center; margin: 7px; padding: 5px;" class="card-img-top">
-                    <div class="card-body" style="text-align: center;">
-                        <h7 class="card-title" style="font-size:large; color: aliceblue;font-family:fantasy;">{{Product.Name}}</h7>
-                        <p class="card-text">{{Product.Price}}&nbsp;$</p>
-                        <button  class="card-footer text-center " style="width: 100%;">
-                            
-                            <a href="#" class="btn btn-success" style="width: 100%;">Add</a>
-                        </button>
-                    </div>
+    <div class="row">
+        {% for Product in Products %}
+        <div class="col-md-3">
+            <div class="card" style="width: 100%; background-color: rgba(44, 69, 4, 0.185); margin: 10px; box-shadow: 5px 4px 10px rgba(5, 120, 3, 0.438); border-style:ridge; border-color: rgb(9, 50, 3);">
+                <img src="{{Product.Image.url}}" style="height: 250px; background: rgba(0, 107, 201, 0); align-self: center; margin: 7px; padding: 5px;" class="card-img-top img-fluid">
+                <div class="card-body" style="text-align: center;">
+                    <h7 class="card-title" style="font-size:large; color: aliceblue;font-family:fantasy;">{{Product.Name}}</h7>
+                    <p class="card-text">{{Product.Price}}&nbsp;$</p>
+                    <button  class="card-footer text-center " style="width: 100%;">
+                        <a href="#" class="btn btn-success" style="width: 100%;">Add</a>
+                    </button>
                 </div>
             </div>
-            
-        {% if forloop.counter|divisibleby:4 or forloop.last %}
-            </div>
-        {% endif %}
-    {% endfor %}
-
-
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

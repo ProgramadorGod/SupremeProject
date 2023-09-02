@@ -1,33 +1,32 @@
-from django.shortcuts import render
-from Car import *
+# views.py
+from django.shortcuts import render, redirect
 from Store.models import Product
-from django.shortcuts import redirect
-
-
-# Create your views here.
+from ShoppingCart.Car import Car  # Importa la clase Car desde el módulo Car
 
 def AddProduct(request, Product_ID):
     Cart = Car(request)
-    Product = Product.objects.get(id = Product_ID)
-    Cart.AddProducts(Product=Product)
+    product = Product.objects.get(id=Product_ID)
+    Cart.AddProduct(Product=product)
 
     return redirect("Store")
 
-
-def Substract(request, Product_ID):
+def Subtract(request, Product_ID):
     Cart = Car(request)
-    Product = Product.objects.get(id = Product_ID)
-    Cart.SubtractPds(Product=Product)
+    product = Product.objects.get(id=Product_ID)
+    Cart.SubtractPds(Product=product)
     return redirect("Store")
 
 def DeleteProduct(request, Product_ID):
     Cart = Car(request)
-    Product = Product.objects.get(id = Product_ID)
-    Cart.Delete(Product=Product)
+    product = Product.objects.get(id=Product_ID)
+    Cart.Delete(Product=product)
 
     return redirect("Store")
 
 def Clean(request, Product_ID):
     Cart = Car(request)
     Cart.EmptyCart()
+
+# Otras vistas que puedas tener...
+
     
