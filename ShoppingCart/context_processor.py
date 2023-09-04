@@ -1,6 +1,6 @@
 # context_processor.py
 def Car_Total_Import(request):
-    total = 120
+    total = 0
     if request.user.is_authenticated:
         shopping_cart = request.session.get("ShoppingCart", {})
         for value in shopping_cart.values():

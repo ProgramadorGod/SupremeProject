@@ -7,7 +7,7 @@ class Car:
         ShoppingCart = self.session.get('ShoppingCart')
 
         if not ShoppingCart:
-            ShoppingCart = self.session["ShoppingCart"] = {}
+            ShoppingCart = self.session["ShoppingCart"] = {} 
 
         self.ShoppingCart = ShoppingCart
     
@@ -52,3 +52,4 @@ class Car:
     def SaveCart(self):
         self.session["ShoppingCart"] = self.ShoppingCart
         self.session.modified = True
+

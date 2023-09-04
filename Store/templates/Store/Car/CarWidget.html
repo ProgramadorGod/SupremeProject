@@ -15,14 +15,29 @@
     <tbody>
         {% if request.session.Car.items %}
             {% for key,value in request.session.Car.items%}
-                
-            {% endfor %}
+                <tr class="text-center">
+                    <td > {{value.Name}} </td>
+                    <td > {{value.Mount}} </td>
+                    <td>
+                        <a href="{% url 'Car:AddProduct value.Product_Id' %}" class="btn btn-sm btm-success">+</a>
+                        <a href="{% url 'Car:Substract value.Product_Id' %}" class="btn btn-sm btm-success">-</a><br/>
+                        {{value.Price}}$
+                    </td>
+
+                </tr>
+                {% endfor %}
         {% else %}
-            <td colspan="3">
+            <td colspan="3"">
                 <div class="alert alert-danger text-center"> Without Products </div>
-            </td>>
+            </td>
         {% endif %}
     </tbody>
+    
+    <tfoot>
+        <tr>
+            <td colspan="3">Total: {{ Car_Total_Import }}$ </td>
+        </tr>
+    </tfoot>
 
 
 
