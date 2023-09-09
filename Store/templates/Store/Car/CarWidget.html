@@ -13,14 +13,16 @@
     </thead>
 
     <tbody>
-        {% if request.session.Car.items %}
+
+        {% if request.session.ShoppingCart %}
+
             {% for key,value in request.session.Car.items%}
                 <tr class="text-center">
                     <td > {{value.Name}} </td>
                     <td > {{value.Mount}} </td>
                     <td>
-                        <a href="{% url 'Car:AddProduct value.Product_Id' %}" class="btn btn-sm btm-success">+</a>
-                        <a href="{% url 'Car:Substract value.Product_Id' %}" class="btn btn-sm btm-success">-</a><br/>
+                        <a href="{% url 'ShoppingCart:AddProduct' Product.id %}" class="btn btn-sm btm-success">+</a>
+                        <a href="{% url 'ShoppingCart:Substract' Product.id %}" class="btn btn-sm btm-success">-</a><br/>
                         {{value.Price}}$
                     </td>
 

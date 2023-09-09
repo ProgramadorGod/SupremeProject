@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Store.models import Product,Category_Prod
+from Store.models import Product
 
 # Create your views here.
 def Store(request):
