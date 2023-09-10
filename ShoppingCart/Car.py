@@ -12,6 +12,8 @@ class Car:
 
 
         self.ShoppingCart = ShoppingCart
+
+        
     def AddProduct(self, Product):
         product_id = str(Product.id)
         if product_id not in self.ShoppingCart:
