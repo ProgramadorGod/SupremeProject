@@ -1,18 +1,20 @@
 {% extends "SupremeApp/Base.html" %}
 {% load static %}
 {%block content%}
+    <link rel='stylesheet' type='text/css' media='screen' href='Blog/templates/Blog/blog.css'>
+    
 
     {% for Post in Posts %}
         <section class="page-section clearfix">
             <div class="container">
-            <div class="intro">
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ Post.Image.url }}" alt="">
+            <div class="intro" >
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded reduce_size" src="{{ Post.Image.url }}" alt="">
                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4" >
                     <span class="section-heading-upper">{{ Post.Title }}</span>
                     <span class="section-heading-lower">{{ Post.Content }}</span>
                 </h2>
-                <p class="mb-3">{{Post.Author }}
+                <p class="mb-3" style="text-align: left; font-size: small;">{{Post.Author }}
                 </p>
                 
                 </div>
@@ -20,6 +22,11 @@
             </div>
         </section>
     {% endfor %}
+    <p>visaje</p>
 
+    {% for Category in Categories %}
+        {{Category}}
+
+    {% endfor %}
 
 {% endblock %}
