@@ -22,11 +22,15 @@
             </div>
         </section>
     {% endfor %}
-    <p>visaje</p>
+    <div style="background-color: rgba(6, 75, 11, 0.459); text-align: center; display: flex; justify-content: center; color: rgb(75, 9, 9);" class="Sobelo">
+        <li><a href="?">All</a></li>
 
-    {% for Category in Categories %}
-        {{Category}}
+        {% for Category in Categories %}
+            <li>
+                <a href="?category={{Category.id}}">{{Category}}</a>
+            </li>
+        {% endfor %}
+    </div>
 
-    {% endfor %}
 
 {% endblock %}

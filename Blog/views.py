@@ -3,22 +3,16 @@ from Blog.models import Post, Categories
 
 # Create your views here.
 def Blog(request):
-    Posts = Post.objects.all()
-    
-    # Crear una lista para almacenar las categorías únicas
-    unique_categories = []
-    
-    for post in Posts:
-        categories = post.Categories.all()
-        for category in categories:
-            # Verificar si la categoría ya está en la lista
-            if category not in unique_categories:
-                unique_categories.append(category)
-    
-    return render(request, 'Blog/Blog.html', {"Posts": Posts, "Categories": unique_categories})
+    # Obtén todas las publicaciones y categorías
+    categories = Categories.objects.all()
 
+    category_id = request.GET.get('category')
+    if category_id:
+        posts = Post.objects.filter(Categories = category_id)
+    else:
+        posts = Post.objects.all()
 
-#def Category(request):
-    Categoriez = Categories.objects.all()
-    return render(request,'Blog/Blog.html', {"Categoriez":Categoriez})
+    
+    return render(request, 'Blog/Blog.html', {"Posts": posts, "Categories": categories, "ID":category_id})
+
 
