@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^cxpe-l=a2&*tmi9x#wi-9v$@fal_2xet08gjvm#*=)iy3ww+9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['curvy-hands-dance.loca.lt','127.0.0.1','legal-snakes-poke.loca.lt','six-pants-laugh.loca.lt', 'huge-months-watch.loca.lt', '*']
 
 
 # Application definition
