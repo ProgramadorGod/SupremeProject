@@ -4,6 +4,5 @@ from Blog import views
 
 urlpatterns = [
     path('', views.Blog, name='Blog'),
-    
 ]
 

@@ -5,13 +5,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href='Blog/templates/Blog/blog.css'>
     <div style="text-align: center; display: flex; justify-content: center; color: rgb(75, 9, 9);" class="Sobelo">
         <a href="?" class="Categoriez">All</a>
+        {% with selected_category=request.GET.category %}
         {% for Category in Categories %}
-            <a class="Categoriez {% if SelectedCategory.id == Category.id %}active{% endif %}" href="{% url 'category_detail' category_id=Category.id %}">
-                {{Category}}
-            </a>
+            <a class="Categoriez  {% if Category.id == ID  %} active {% endif %}" href="?category={{Category.id}}">{{Category}}</a>
         {% endfor %}
     </div>   
-    
+        {%endwith%}
     {% for Post in Posts %}
         <section class="page-section clearfix">
             <div class="container">
