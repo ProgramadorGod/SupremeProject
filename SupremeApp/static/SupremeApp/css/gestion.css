@@ -15,6 +15,15 @@ p {
   line-height: 1.75;
 }
 
+.col-md-3{
+  min-height: 500px;
+}
+
+.active{
+  text-decoration: underline;
+}
+
+
 .text-faded {
   color: rgba(255, 255, 255, 0.3);
 }
@@ -46,6 +55,19 @@ p {
 
 .section-heading {
   text-transform: uppercase;
+}
+
+.sobelo{
+  background-color: rgba(19, 42, 10, 0.589);
+  padding: 10px;
+  margin-top:10px ;
+    
+}
+.Categoriez{
+  padding-left: 5%;
+  color: rgba(255, 228, 196, 0.815);
+  
+
 }
 
 .section-heading .section-heading-upper {

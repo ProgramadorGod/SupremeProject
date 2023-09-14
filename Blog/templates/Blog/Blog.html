@@ -1,9 +1,17 @@
 {% extends "SupremeApp/Base.html" %}
 {% load static %}
 {%block content%}
-    <link rel='stylesheet' type='text/css' media='screen' href='Blog/templates/Blog/blog.css'>
     
-
+    <link rel='stylesheet' type='text/css' media='screen' href='Blog/templates/Blog/blog.css'>
+    <div style="text-align: center; display: flex; justify-content: center; color: rgb(75, 9, 9);" class="Sobelo">
+        <a href="?" class="Categoriez">All</a>
+        {% for Category in Categories %}
+            <a class="Categoriez {% if SelectedCategory.id == Category.id %}active{% endif %}" href="{% url 'category_detail' category_id=Category.id %}">
+                {{Category}}
+            </a>
+        {% endfor %}
+    </div>   
+    
     {% for Post in Posts %}
         <section class="page-section clearfix">
             <div class="container">
@@ -15,22 +23,14 @@
                     <span class="section-heading-lower">{{ Post.Content }}</span>
                 </h2>
                 <p class="mb-3" style="text-align: left; font-size: small;">{{Post.Author }}
-                </p>
-                
+                </p>                
                 </div>
             </div>
             </div>
         </section>
     {% endfor %}
-    <div style="background-color: rgba(6, 75, 11, 0.459); text-align: center; display: flex; justify-content: center; color: rgb(75, 9, 9);" class="Sobelo">
-        <li><a href="?">All</a></li>
+    
 
-        {% for Category in Categories %}
-            <li>
-                <a href="?category={{Category.id}}">{{Category}}</a>
-            </li>
-        {% endfor %}
-    </div>
 
 
 {% endblock %}
