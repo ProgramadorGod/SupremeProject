@@ -4,18 +4,18 @@
     
     <link rel='stylesheet' type='text/css' media='screen' href='Blog/templates/Blog/blog.css'>
     <div style="text-align: center; display: flex; justify-content: center; color: rgb(75, 9, 9);" class="Sobelo">
-        <a href="?" class="Categoriez">All</a>
-        {% with selected_category=request.GET.category %}
-        {% for Category in Categories %}
-            <a class="Categoriez  {% if Category.id == ID  %} active {% endif %}" href="?category={{Category.id}}">{{Category}}</a>
-        {% endfor %}
+        <a href="?" class="Categoriez {% if 0 == ID %} active {% endif %} ">All</a>
+
+            {% for Category in Categories %}
+                <a class="Categoriez  {% if Category.id == ID %} active {% endif %}" href="?category={{Category.id}}">{{Category}}</a>
+            {% endfor %}
     </div>   
-        {%endwith%}
+    <div style="">
     {% for Post in Posts %}
-        <section class="page-section clearfix">
+        <section class="page-section clearfix" style="display: flex; align-items: center; text-align: center;">
             <div class="container">
             <div class="intro" >
-                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded reduce_size" src="{{ Post.Image.url }}" alt="">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded reduce_size" src="{{ Post.Image.url }}" alt="" style="max-height:700px;">
                 <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                 <h2 class="section-heading mb-4" >
                     <span class="section-heading-upper">{{ Post.Title }}</span>
@@ -28,6 +28,7 @@
             </div>
         </section>
     {% endfor %}
+    </div>
     
 
 

@@ -5,7 +5,3 @@ from django.shortcuts import render, HttpResponse
 
 def Home(request):
     return render(request,'SupremeApp/Home.html')
-
-
-def Contact(request):
-    return render(request,'SupremeApp/Contact.html')
