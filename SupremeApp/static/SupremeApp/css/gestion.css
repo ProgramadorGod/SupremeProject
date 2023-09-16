@@ -11,6 +11,35 @@ h6 {
   font-family: 'Raleway';
 }
 
+.AAAWAOS{
+  color: black; 
+  font-size:larger; 
+  padding: 10px;
+  border: rgb(34, 58, 7) solid 1px;
+  background-color:rgba(19, 42, 10, 0.589);  
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+table.AAAWAOS, table.AAAWAOS th, table.AAAWAOS td {
+  padding: 10px;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.FormContainer{
+  display: flex;
+  margin: 10px auto;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  padding: 10px;
+  
+  
+}
+
 
 p {
   line-height: 1.75;

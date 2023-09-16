@@ -2,6 +2,30 @@
 {% load static %}
 {%block content%}
 
+{% csrf_token %}
+{{request.POST}}
+
+<div class="FormContainer">
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table class="AAAWAOS">
+            {{ContactForm.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+
+</div>
+
+<div class="FormContainer">
+    {% if "Valid" in request.GET %}
+       <p style="color: aliceblue;"> Información enviada con éxito</p>
+    {% endif%}
+</div>
+
+
 
 
 {% endblock %}

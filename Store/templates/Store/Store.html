@@ -1,6 +1,7 @@
 {% extends "SupremeApp/Base.html" %}
 {% load static %}
 {% block content %}
+{% csrf_token %} 
 
 <div class="container" style="padding:10px ; padding-top: 50px;">
     <div style="float: right;">
