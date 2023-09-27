@@ -1,7 +1,16 @@
 from django.shortcuts import render
 from Store.models import Product
+from ShoppingCart.models import ProductRelation
 
 # Create your views here.
 def Store(request):
     Products = Product.objects.all()
-    return render(request,'Store/Store.html',{"Products":Products})
+    user_proucs = ProductRelation.objects.filter(
+        user=request.user).values_list(
+            "product", flat=True)
+        
+    user_proucs = Product.objects.filter(id__in=user_proucs)
+
+    return render(request,'Store/Store.html',{
+        "user_products": user_proucs,
+        "Products":Products})

@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from ShoppingCart.models import ProductRelation
+
+
+@admin.register(ProductRelation)
+class ProductRelationAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "user",
+        "product"
+    )
