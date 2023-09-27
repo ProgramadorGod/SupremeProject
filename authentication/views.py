@@ -6,15 +6,34 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import login
+from .forms import CustomUserCreationForm
+
 
 
 # Create your views here.
-
-
 class VRegister(View):
     def get(self, request):
+        form = CustomUserCreationForm()
+
+        return render(request,'authentication/register.html', {'form':form})
+    
+    def post(self,request):
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return HttpResponse('Sobelo')
+        else:
+            return HttpResponse('fail')
+
+
+
+
+
+class Login(View):
+    def get(self, request):
         print(request.user)
-        return render(request,'authentication/register.html')
+        return render(request,'authentication/login.html')
         #form = UserCreationForm()
         #return render(request,'authentication/register.html', {"form":form})
 
