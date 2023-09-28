@@ -14,17 +14,15 @@
         </tr>
     </thead>
 
-    {{user_products}}
     <tbody>
         {% for product in user_products%}
         <tr class="text-center">
-            <td> -> {{ product.Name }}</td>
+            <td>{{product.Name}}</td>
             <td>
-                {{product.Price}}
+                
             </td>
             <td>
-                <a style="width: 100%;">Delete</a>
-
+                {{product.Price}}
             </td>
 
         </tr>
@@ -33,7 +31,11 @@
     
     <tfoot>
         <tr>
-            <td colspan="3">Total: {{ Car_Total_Import }}$ </td>
+            <td colspan="3">
+               
+                Total: {{ Car_Total_Import }}$ 
+                {{A}}
+            </td>
         </tr>
     </tfoot>
 

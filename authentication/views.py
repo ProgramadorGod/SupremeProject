@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm
 from django.http.response import HttpResponse
@@ -22,9 +22,9 @@ class VRegister(View):
         if form.is_valid():
             user = form.save()
             login(request,user)
-            return HttpResponse('Sobelo')
+            return redirect('/')
         else:
-            return HttpResponse('fail')
+            return redirect('authentication/Register/')
 
 
 
@@ -48,7 +48,7 @@ class Login(View):
                 if authenticated_user is not None:
                     login(request, authenticated_user)  # Establece la sesión de usuario
 
-                    return HttpResponse("Autenticated!!!")
+                    return redirect("authentication")
                 
             return HttpResponse("Invalid password.")
 
