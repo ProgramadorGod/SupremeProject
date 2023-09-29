@@ -36,6 +36,7 @@
                 Total: {{ Car_Total_Import }}$ 
                 {% for product, quantity in context.product_quantities.items %}
                 <li>{{product}}{{ quantity }}</li>
+                    {{product.Price}}
                 {% endfor %}            </td>
         </tr>
     </tfoot>

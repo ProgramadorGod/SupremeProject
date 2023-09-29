@@ -48,7 +48,7 @@ class Login(View):
                 if authenticated_user is not None:
                     login(request, authenticated_user)  # Establece la sesión de usuario
 
-                    return redirect("authentication")
+                    return redirect("/")
                 
             return HttpResponse("Invalid password.")
 
