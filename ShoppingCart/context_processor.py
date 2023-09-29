@@ -4,6 +4,7 @@ from ShoppingCart.models import ProductRelation
 
 def Car_Total_Import(request):
     total = 0
+    totalPrice = 0
     print("LOOL ", request.user.is_authenticated)
 
     if request.user.is_authenticated:
@@ -16,6 +17,7 @@ def Car_Total_Import(request):
         product_quantities = {}
 
         for product in user_products:
+            totalPrice += product.product.Price
             product_name = product.product
             if product_name in product_quantities:
                 product_quantities[product_name] +=1
@@ -27,8 +29,8 @@ def Car_Total_Import(request):
             'product_quantities': product_quantities,
         }
 
-    
-        return {"Car_Total_Import": total,'context':context}
+
+        return {"Car_Total_Import": totalPrice,'context':context}
 
 
     else:

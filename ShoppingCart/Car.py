@@ -12,7 +12,6 @@ class Car:
             ShoppingCart = self.session["ShoppingCart"] = {} 
 
 
-
         self.ShoppingCart = ShoppingCart
 
         
@@ -22,26 +21,47 @@ class Car:
             product=product
         )
 
-    def SubtractPds(self, Product):
-        print("GET DATA")
-        for key, value in self.ShoppingCart.items():
-            if key == str(Product.id):
-                value["Mount"] -= 1
-                if value["Mount"] < 1:
-                    self.Delete(Product)
-                break
+    def SubtractPds(self, Product, user):
+        product_id = str(Product.id)
 
+        # Intenta obtener el objeto ProductRelation del usuario y producto específicos
+        product_relation = ProductRelation.objects.filter(user=user, product=Product).first()
+
+        if product_relation:
+            # Si existe, elimina la relación
+            product_relation.delete()
+
+            # Actualiza el carrito
+            if product_id in self.ShoppingCart:
+                del self.ShoppingCart[product_id]
+        
         self.SaveCart()
 
-    def Delete(self, Product):
-        product_id = str(Product.id)
-        if product_id in self.ShoppingCart:
-            del self.ShoppingCart[product_id]
-            self.SaveCart()
 
-    def EmptyCart(self):
-        self.session["ShoppingCart"] = {}
-        self.session.modified = True
+    def Delete(self, Product,user):
+        product_id = str(Product.id)
+
+        # Intenta obtener el objeto ProductRelation del usuario y producto específicos
+        product_relation = ProductRelation.objects.filter(user=user, product=Product)
+
+        if product_relation:
+            # Si existe, elimina la relación
+            product_relation.delete()
+
+            # Actualiza el carrito
+            if product_id in self.ShoppingCart:
+                del self.ShoppingCart[product_id]
+        
+        self.SaveCart()
+
+    def EmptyCart(self,user):
+        product_relation = ProductRelation.objects.filter(user=user)
+        if product_relation:
+            product_relation.delete()
+        
+        
+
+
 
     def SaveCart(self):
         self.session["ShoppingCart"] = self.ShoppingCart

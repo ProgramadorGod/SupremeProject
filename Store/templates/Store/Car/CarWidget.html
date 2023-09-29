@@ -15,18 +15,29 @@
     </thead>
 
     <tbody>
-        {% for product in user_products%}
-        <tr class="text-center">
-            <td>{{product.Name}}</td>
-            <td>
-                
-            </td>
-            <td>
-                {{product.Price}}
-            </td>
+        {% for product, quantity in context.product_quantities.items %}
+            
+            <tr class="text-center">
+                <td style="text-align: center; justify-content: center; align-items: center;">{{product.Name}}</td>
+                <td>
+                    {{quantity}}
+                    <a href="{% url 'ShoppingCart:AddProduct' product.id %}" class="" style="font-size: 5mm; padding: 0px;">+</a>
+                    <a href="{% url 'ShoppingCart:Substract' product.id %}"  class="" style="font-size: 6mm; padding-left: 3px;">-</a>
+                </td>
+                <td>
+                    {{product.Price}}
+                </td>
+                <td>
+                    <a href="{% url 'ShoppingCart:Delete' product.id %}" class="btn btn-success" style="width: 100%;">Delete</a>
 
-        </tr>
-    {% endfor %}
+                </td>
+
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center;" class="">No hay productos en el carrito</td>
+            </tr>
+        {% endfor %}     
     </tbody>
     
     <tfoot>
@@ -34,10 +45,7 @@
             <td colspan="3">
                
                 Total: {{ Car_Total_Import }}$ 
-                {% for product, quantity in context.product_quantities.items %}
-                <li>{{product}}{{ quantity }}</li>
-                    {{product.Price}}
-                {% endfor %}            </td>
+    
         </tr>
     </tfoot>
 

@@ -8,6 +8,7 @@
         {% include "Store/Car/CarWidget.html" %}
     </div>
 
+
     <div class="row" style="min-width: 400px;">
         {% for Product in Products %}
         <div class="col-md-3">
@@ -18,6 +19,7 @@
                     <p class="card-text">{{Product.Price}}&nbsp;$</p>
                     <button  class="card-footer text-center " style="width: 100%; display: flex;justify-content: center;text-align: center;">
                         <a href="{% url 'ShoppingCart:AddProduct' Product.id %}" class="btn btn-success" style="width: 100%;">Add</a>
+
                     </button>
                 </div>
             </div>

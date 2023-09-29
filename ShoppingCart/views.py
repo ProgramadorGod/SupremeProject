@@ -15,19 +15,19 @@ def AddProduct(request, Product_Id):
 def Subtract(request, Product_Id):
     Cart = Car(request)
     product = Product.objects.get(id=Product_Id)
-    Cart.SubtractPds(Product=product)
+    Cart.SubtractPds(product, request.user)
     return redirect("Store")
 
 def DeleteProduct(request, Product_Id):
     Cart = Car(request)
     product = Product.objects.get(id=Product_Id)
-    Cart.Delete(Product=product)
+    Cart.Delete(product, request.user)
 
     return redirect("Store")
 
 def Clean(request):
     Cart = Car(request)
-    Cart.EmptyCart()
+    Cart.EmptyCart(request.user)
     return redirect("Store")
 
 # Otras vistas que puedas tener...
