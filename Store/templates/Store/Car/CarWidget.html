@@ -5,53 +5,38 @@
             </th>
             <th>
                 <a href="{% url 'ShoppingCart:Clean' %}" class="btn btn-sm btm-success">Clean</a>
-
             </th>
-        
         </tr>
-
         <tr>
-            
             <th>Product</th>
             <th>Quantity</th>
             <th>Price</th>
-
         </tr>
     </thead>
 
     <tbody>
-
-        {% if request.session.ShoppingCart.items %}
-
-            {% for key,value in request.session.ShoppingCart.items%}
-                <tr class="text-center">
-                    <td > {{value.Name}} </td>
-                    <td > 
-                        {{value.Mount}} 
-                        <a href="{% url 'ShoppingCart:AddProduct' value.Product_Id %}">+</a>
-                        <a href="{% url 'ShoppingCart:SubstractPds' value.Product_Id %}">-</a>
-
-                    </td>
-                    <td>
-                        {{value.Price}}$
-                    </td>
-                    <td>
-                        <a href="{% url 'ShoppingCart:Delete' value.Product_Id %}" style="width: 100%;">Delete</a>
-
-                    </td>
-
-                </tr>
-                {% endfor %}
-        {% else %}
-            <td colspan="3"">
-                <div class="alert alert-danger text-center"> Without Products </div>
+        {% for product in user_products%}
+        <tr class="text-center">
+            <td>{{product.Name}}</td>
+            <td>
+                
             </td>
-        {% endif %}
+            <td>
+                {{product.Price}}
+            </td>
+
+        </tr>
+    {% endfor %}
     </tbody>
     
     <tfoot>
         <tr>
-            <td colspan="3">Total: {{ Car_Total_Import }}$ </td>
+            <td colspan="3">
+               
+                Total: {{ Car_Total_Import }}$ 
+                {% for product, quantity in context.product_quantities.items %}
+                <li>{{product}}{{ quantity }}</li>
+                {% endfor %}            </td>
         </tr>
     </tfoot>
 

@@ -6,7 +6,9 @@ from ShoppingCart.Car import Car  # Importa la clase Car desde el módulo Car
 def AddProduct(request, Product_Id):
     Cart = Car(request)
     product = Product.objects.get(id=Product_Id)
-    Cart.AddProduct(Product=product)
+    print(request.user)
+    print(product)
+    Cart.AddProduct(product, request.user)
 
     return redirect("Store")
 

@@ -1,3 +1,5 @@
+from ShoppingCart.models import ProductRelation
+
 # Car.py
 class Car:
     def __init__(self, request):
@@ -14,25 +16,14 @@ class Car:
         self.ShoppingCart = ShoppingCart
 
         
-    def AddProduct(self, Product):
-        product_id = str(Product.id)
-        if product_id not in self.ShoppingCart:
-            self.ShoppingCart[product_id] = {
-                "Product_Id": Product.id,
-                "Name": Product.Name,
-                "Price": str(Product.Price),
-                "Mount": 1,
-                "Image": Product.Image.url,
-            }
-        else:
-            for key, value in self.ShoppingCart.items():
-                if key == product_id:
-                    value["Mount"] += 1
-                    break
-
-        self.SaveCart()
+    def AddProduct(self, product, user):
+        ProductRelation.objects.create(
+            user=user,
+            product=product
+        )
 
     def SubtractPds(self, Product):
+        print("GET DATA")
         for key, value in self.ShoppingCart.items():
             if key == str(Product.id):
                 value["Mount"] -= 1
