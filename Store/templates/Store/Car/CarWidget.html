@@ -34,8 +34,9 @@
             <td colspan="3">
                
                 Total: {{ Car_Total_Import }}$ 
-                {{A}}
-            </td>
+                {% for product, quantity in context.product_quantities.items %}
+                <li>{{product}}{{ quantity }}</li>
+                {% endfor %}            </td>
         </tr>
     </tfoot>
 

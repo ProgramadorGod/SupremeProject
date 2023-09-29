@@ -10,15 +10,13 @@ def Car_Total_Import(request):
         shopping_cart = request.session.get("ShoppingCart", {})
         for value in shopping_cart.values():
             total += float(value["Price"]) * value["Mount"]
-    return {"Car_Total_Import": total}
 
-
-def TotalMount(request):
-    user_products = ProductRelation.filter(user=request.user)
+    
+    user_products = ProductRelation.objects.filter(user=request.user)
     product_quantities = {}
 
     for product in user_products:
-        product_name = product.Name
+        product_name = product.product
         if product_name in product_quantities:
             product_quantities[product_name] +=1
         else:
@@ -29,6 +27,10 @@ def TotalMount(request):
         'product_quantities': product_quantities,
     }
 
-    return {'A':'A'}
+    
+    return {"Car_Total_Import": total,'context':context}
+
+
+
     
 
